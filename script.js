@@ -7,27 +7,24 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
-        return "tie"
+        return "tie";
     } else if ((playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "scissors" && computerSelection === "paper") ||
         (playerSelection === "paper" && computerSelection === "rock")) {
-        return "win"
+        return "win"; // Check the conditions in which the player can win
     } else if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
-        return "Wrong input";
+        return "Wrong input"; // If player enters an invalid input, return "Wrong input"
     } else {
-        return "lose"
+        return "lose"; // If none of the above conditions are met, player loses
     }
 
 }
 
 function getSelection() {
-    // const playerSelection = prompt("Enter your choice", "rock");
-    const playerSelection = "rock";
+    const playerSelection = prompt("Enter your choice", "rock");
     const computerSelection = getComputerChoice();
-    return [playerSelection, computerSelection]
+    return [playerSelection, computerSelection]; // Return an array with player and computer selections
 }
-
-// console.log(playRound(playerSelection, computerSelection));
 
 let playerScore = 0;
 let computerScore = 0;
@@ -40,12 +37,13 @@ function playGame() {
     let roundResult;
     let selections;
 
-    // run 5 rounds
+    // Run 5 rounds
     for (i = 0; i < 5; i++) {
         selections = getSelection();
         playerSelection = selections[0].toLowerCase();
         computerSelection = selections[1].toLowerCase();
         
+        // Check round win conditions
         roundResult = playRound(playerSelection, computerSelection);
         if (roundResult === "win") {
             playerScore++;
@@ -57,6 +55,7 @@ function playGame() {
         gameRound++;
     }
 
+    // Check game win conditions
     if (playerScore === computerScore) {
         gameResult = "draw";
     } else if (playerScore < computerScore) {
@@ -68,7 +67,10 @@ function playGame() {
 
 playGame();
 
-console.log(`Player: ${playerScore}
+const gameSummary = `Player: ${playerScore}
 Computer: ${computerScore}
 Draw: ${ties}
-In ${gameRound} rounds`);
+In ${gameRound} rounds
+Therefore, you ${gameResult}.`;
+
+console.log(gameSummary);
