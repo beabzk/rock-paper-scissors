@@ -38,7 +38,7 @@ function playGame() {
     let selections;
 
     // Run 5 rounds
-    for (i = 0; i < 5; i++) {
+    for (i = 1; i <= 5; i++) {
         selections = getSelection();
         playerSelection = selections[0].toLowerCase();
         computerSelection = selections[1].toLowerCase();
@@ -47,10 +47,13 @@ function playGame() {
         roundResult = playRound(playerSelection, computerSelection);
         if (roundResult === "win") {
             playerScore++;
+            console.log(`You win round ${i}`)
         } else if (roundResult === "lose") {
             computerScore++;
+            console.log(`You lose round ${i}`)
         } else if (roundResult === "tie") {
             ties++;
+            console.log(`That's a tie on round ${i}`)
         }
         gameRound++;
     }
