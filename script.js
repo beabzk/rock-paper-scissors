@@ -13,7 +13,7 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "paper" && computerSelection === "rock")) {
         return "win"; // Check the conditions in which the player can win
     } else if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
-        return "Wrong input"; // If player enters an invalid input, return "Wrong input"
+        return "Wrong input. You can only choose between 'rock', 'paper', or 'scissors'."; // If player enters an invalid input
     } else {
         return "lose"; // If none of the above conditions are met, player loses
     }
@@ -47,13 +47,13 @@ function playGame() {
         roundResult = playRound(playerSelection, computerSelection);
         if (roundResult === "win") {
             playerScore++;
-            console.log(`You win round ${i}`)
+            console.log(`${i} | You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}.`)
         } else if (roundResult === "lose") {
             computerScore++;
-            console.log(`You lose round ${i}`)
+            console.log(`${i} | You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection}.`)
         } else if (roundResult === "tie") {
             ties++;
-            console.log(`That's a tie on round ${i}`)
+            console.log(`${i} | It's a tie! Both you and the computer chose ${playerSelection}.`)
         }
         gameRound++;
     }
