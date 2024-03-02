@@ -12,13 +12,19 @@ function playRound(playerSelection, computerSelection) {
         return "A tie!"
     } else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "rock")) {
         return "You win!"
+    } else if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
+        return "Wrong input";
     } else {
         return "You lose!"
     }
 
 }
 
-const playerSelection = 'rock';
+const playerSelection = prompt("Enter your choice", "rock");
 const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection, computerSelection));
+
+// function playGame() {
+
+// }
