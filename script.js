@@ -72,7 +72,7 @@ playGame();
 
 const gameSummary = `Player: ${playerScore}
 Computer: ${computerScore}
-Draw: ${ties}
+Tie: ${ties}
 In ${gameRound} rounds
 Therefore, you ${gameResult}.`;
 
